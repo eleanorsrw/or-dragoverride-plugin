@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.waterloorocketry.dragoverride.util.LazyMap;
@@ -11,7 +12,8 @@ import com.waterloorocketry.dragoverride.util.LazyMap;
 public class ReadCSV {
     public static LazyMap<Double, AeroData, AeroData> readCSV(String csvFile) {
         String delimiter = ",";
-        Map<Double, AeroData> rawMap = new HashMap<>();
+        // linkedhashmap to preserve csv order
+        Map<Double, AeroData> rawMap = new LinkedHashMap<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             // Read the header line and create a mapping from column names to indices.
             String headerLine = br.readLine();

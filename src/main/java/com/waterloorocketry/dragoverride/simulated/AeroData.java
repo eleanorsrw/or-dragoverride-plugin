@@ -94,4 +94,8 @@ public class AeroData {
                 ", reynoldsNumber=" + reynoldsNumber +
                 '}';
     }
+
+    public double getCd() {
+        return cd;
+    }
 }
